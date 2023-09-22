@@ -1,0 +1,85 @@
+
+
+
+
+
+
+
+//Posição e tamanho da bolinha
+let xBolinha = 300;
+let yBolinha = 200;
+let diametro = 25;
+let raio = 12.5;
+
+//velocidade da bolinha 
+let VelocidaDaBolinhaX = 6;
+let velocidaDaBolinhaY= 6;
+
+//raquete
+let xRaquete = 5;
+let yRaquete = 150;
+let RaqueteComprimento = 10;
+let RaqueteAltura = 90;
+
+function setup() {
+  createCanvas(600,400);
+}
+
+function draw() {
+  background(0);
+  mostraBolinha();
+  movimentoBolinha();
+  colideBorda();
+  mostraRaquete();
+  movimentaRaquete();
+  colideRaquete();
+}
+ // 
+ function mostraBolinha() {
+  circle(xBolinha,yBolinha, diametro);       
+}
+function movimentoBolinha(){
+  xBolinha += VelocidaDaBolinhaX;
+  yBolinha += velocidaDaBolinhaY;
+}
+function colideBorda(){
+ if (xBolinha > width || xBolinha > 0){
+    VelocidadeDaBolinha *= -1;
+}
+ if (YBolinha > height || YBolinha > 0 ){
+    velocidadeDaBolinha *= -1;
+ }
+}
+function mostraRaquete(){
+  rect(xRaquete, yRaquete, RaqueteComprimento, RaqueteAltura);
+}
+function movimentaRaquete(){
+if(keyDown(UP_ARROW)){
+yRaquete -= 10;
+}
+if (keylsDown(DOWN_ARROW)){
+yRaquete += 10;
+}
+}
+function colideRaquete(){
+if (
+xBolinha - raio < xRaquete + RaqueteComprimento &&
+yBolinha - raio < yRaquete + RaqueteAltura &&
+yBolinha + raio > Raquete 
+  ){
+  VelocidadeDaBolinhaX *=-1;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
